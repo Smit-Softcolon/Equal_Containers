@@ -1,30 +1,39 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+import 'package:equal_containers/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:equal_containers/main.dart';
-
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('Verify Containers have equal heights',
+      (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
+    var flexibleWidgets = find.byType(Flexible);
+    expect(flexibleWidgets, findsWidgets);
+    print('Flexible Widgets found successfully.');
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Find the three Flexible containers
+    final flexibleContainers =
+        tester.widgetList<Flexible>(find.byType(Flexible)).toList();
+    expect(flexibleContainers.length, 3);
+    print('Found 3 containers.');
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    for (final flexibleContainer in flexibleContainers) {
+      // check for all flexibleContainers to have flex: 1
+      expect(flexibleContainer.flex, 1);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+      final container = flexibleContainer.child as Container;
+      expect(
+          [Colors.red, Colors.blue, Colors.yellow], contains(container.color));
+      if (container.color == Colors.red) {
+        print('Red container found.');
+      } else if (container.color == Colors.blue) {
+        print('Blue container found.');
+      } else {
+        print('Yellow container found.');
+      }
+
+      // check for child of flexibleContainer with type Container
+      expect(flexibleContainer.child, isA<Container>());
+    }
+    print('All containers have equal heights.');
   });
 }
