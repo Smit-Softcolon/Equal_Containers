@@ -16,9 +16,27 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Equal Containers'),
         ),
-        body: const Column(
+        body: Column(
           children: [
-            // Add your code here
+            // Solution
+            Flexible(
+              flex: 1,
+              child: Container(
+                color: Colors.red,
+              ),
+            ),
+            Flexible(
+              flex: 1,
+              child: Container(
+                color: Colors.blue,
+              ),
+            ),
+            Flexible(
+              flex: 1,
+              child: Container(
+                color: Colors.orange,
+              ),
+            ),
           ],
         ),
       ),
