@@ -25,10 +25,10 @@ void main() {
           [Colors.red, Colors.blue, Colors.yellow], contains(container.color));
       if (container.color == Colors.red) {
         print('Red container found.');
+      } else if (container.color == Colors.yellow) {
+        print('Yellow container found.');
       } else if (container.color == Colors.blue) {
         print('Blue container found.');
-      } else {
-        print('Yellow container found.');
       }
 
       // check for child of flexibleContainer with type Container

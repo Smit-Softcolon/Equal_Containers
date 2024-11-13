@@ -18,7 +18,7 @@ flutter test
 
 ## Application Demo
 
-![An App that display a 3 containers that equally divides remaining height of device.]()
+![An App that display a 3 containers that equally divides remaining height of device.](https://github.com/user-attachments/assets/ebd032ee-9544-44ce-888e-e5161ba4b988)
 
 ## Functionality Requirements
 Complete the app implementation to meet these requirements:

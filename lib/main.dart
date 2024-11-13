@@ -28,13 +28,13 @@ class MyApp extends StatelessWidget {
             Flexible(
               flex: 1,
               child: Container(
-                color: Colors.blue,
+                color: Colors.yellow,
               ),
             ),
             Flexible(
               flex: 1,
               child: Container(
-                color: Colors.orange,
+                color: Colors.blue,
               ),
             ),
           ],
